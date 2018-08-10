@@ -1,0 +1,54 @@
+.head {
+    background-color: #383838;
+    height: 70px;
+    width: 100%;
+}
+.head .center {
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+.head .logo {
+    color: white;
+    width: 200px;
+    height: 70px;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+}
+.button-group {
+    width: 200px;
+    height: 70px;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+}
+.button-group .a-center {
+    width: 180px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+.head a{
+    color: white;
+}
+.banner {
+    background-color: #6ADC49;
+    height: 250px;
+    width: 100%;
+}
+.content {
+    height: 500px;
+    width: 100%;
+}
+.footer {
+    height: 100px;
+    width: 100%;
+    background-color: #8C8C8C
+}
