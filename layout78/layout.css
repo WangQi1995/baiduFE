@@ -3,8 +3,9 @@
     height: 70px;
     width: 100%;
 }
-.head .center {
+.center {
     width: 960px;
+    height: inherit;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
@@ -42,13 +43,96 @@
     background-color: #6ADC49;
     height: 250px;
     width: 100%;
+    position: relative;
+}
+.pic-choose {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    display: inline-flex;
+}
+.pic-index {
+    text-align: center;
+    margin: 5px;
+    height: 30px;
+    line-height: 30px;
+    width: 25px;
+    background-color: #8C8C8C;
+    border: 1px groove black;
+    position: relative;
+    top: 10px;
+}
+.pitch{
+    text-align: center;
+    margin: 5px;
+    line-height: 40px;
+    width: 25px;
+    background-color: #8C8C8C;
+    border: 1px groove black;
+    height: 40px;
 }
 .content {
     height: 500px;
     width: 100%;
 }
+.tabs-center {
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    height: 50px;
+}
+.tabs {
+    height: 70px;
+}
+hr {
+    margin: 0 0;
+}
+ul {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    width: 246px;
+    bottom: 0px;
+    left: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+ul li {
+    float: left;
+    list-style-type: none;
+    width: 80px;
+    text-align: center;
+    line-height: 48px;
+    height: 48px;
+    border: 1px solid gray;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 0px;
+    background-color: #DCDCDC;
+}
+ul .active-tab {
+    background-color: white;
+}
+hr {
+    margin-bottom: 5px;
+}
+.tab-detail {
+    display: flex;
+    justify-content: space-between;
+}
+.content-block {
+    padding: 80px;
+    border: 1px solid gray;
+    text-align: center;
+    flex-grow: 1;
+    margin: 5px 5px;
+}
 .footer {
     height: 100px;
     width: 100%;
     background-color: #8C8C8C
+}
+hr {
+    width: 100%;
 }
