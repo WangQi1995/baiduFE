@@ -1,0 +1,22 @@
+li {
+    list-style: none;
+    border: 1px solid gray;
+}
+
+li:hover {
+    background: #FFC0CB;
+}
+
+.choose {
+    background: lightblue;
+}
+
+input {
+    width: 200px;
+}
+
+ul {
+    padding: 0px;
+    margin: 0px;
+    width:  200px;
+}
