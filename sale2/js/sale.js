@@ -35,9 +35,18 @@ let sourceData = [{
     region: "华南",
     sale: [10, 40, 10, 6, 5, 6, 8, 6, 6, 6, 7, 26]
 }]
-
 var regionContainer = document.querySelector("#region-radio-wrapper")
 var productContainer = document.querySelector("#product-radio-wrapper")
+var barData = new Array()
+for(var i=0; i<sourceData.length; i++) {
+    if(sourceData[i].product == '手机' && sourceData[i].region == '华东') {
+        console.log(sourceData[i])
+        barData = sourceData[i].sale
+        break
+    }
+}
+createBar(barData)
+createLine(barData)
 generateCheckBox(regionContainer, [{
     value: 1,
     text: "华东"
@@ -157,6 +166,8 @@ function createTable(regions, products, data) {
         tableArea.innerHTML = "<table id='data-table' border='1'><tr><th>地区</th><th>商品</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th><th>6月</th><th>7月</th><th>8月</th><th>9月</th><th>10月</th><th>11月</th><th>12月</th></tr></table>"
         var t = document.querySelector("#data-table")
         var tr = document.createElement("tr")
+        tr.setAttribute("region", data[0].region) 
+        tr.setAttribute("product", data[0].product)
         var td = document.createElement("td")
         td.rowSpan = productCount
         td.innerHTML = data[0].region
@@ -172,6 +183,8 @@ function createTable(regions, products, data) {
         t.appendChild(tr)
         for(var i=1; i<data.length; i++) {
             var tr = document.createElement("tr")
+            tr.setAttribute("region", data[i].region) 
+            tr.setAttribute("product", data[i].product)
             var td = document.createElement("td")
             td.innerHTML = data[i].product
             tr.appendChild(td)
