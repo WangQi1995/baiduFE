@@ -40,13 +40,10 @@ var productContainer = document.querySelector("#product-radio-wrapper")
 var barData = new Array()
 for(var i=0; i<sourceData.length; i++) {
     if(sourceData[i].product == '手机' && sourceData[i].region == '华东') {
-        console.log(sourceData[i])
         barData = sourceData[i].sale
         break
     }
 }
-createBar(barData)
-createLine(barData)
 generateCheckBox(regionContainer, [{
     value: 1,
     text: "华东"
@@ -142,6 +139,8 @@ function getData() {
             }
         }
         createTable(checkedRegion, checkedProduct, data)
+    //    createBar(barData)
+        createLine(barData)
     }
 }
 

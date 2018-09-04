@@ -1,12 +1,6 @@
-function createLine(data) {
-    getData()
-
-    var container = document.querySelector("#line-wrapper")
-    var canvas = document.createElement('canvas')
-    var width = 300
-    canvas.width = width
-    var height = 200
-    canvas.height = height
+function draw(data) {
+    var canvas = document.querySelector("#line")
+    canvas.height = canvas.height
     if (canvas.getContext) {
         var ctx = canvas.getContext('2d')
 
@@ -22,7 +16,7 @@ function createLine(data) {
         var pointInterval = parseInt(axisx/(count-1))
 
         for(var i=0; i<data.length; i++) {
-            if(max<data[i]) {
+            if(max<parseInt(data[i])) {
                 max = data[i]
             }
         }
@@ -52,17 +46,23 @@ function createLine(data) {
             } 
         }
     }
-    
-    container.appendChild(canvas)
-    
 }
 
-function getData() {
+function createLine() {
     var t = document.querySelector("#data-table")
     t.onmouseover = function(ev) {
-        var ev = ev||window.ev
+        var data = new Array()
+        var ev = ev || window.ev
         var target = ev.target || ev.srcElement
-        console.log(ev)
-        console.log(target)
+        if(target.nodeName.toLowerCase() == "td") {
+            var tr = target.parentNode
+            var tds = tr.childNodes
+            for(var i=0; i<tds.length; i++) {
+                if (!isNaN(tds[i].innerHTML)) {
+                    data.push(tds[i].innerHTML)
+                }
+            }
+        }
+        draw(data)
     }
 }

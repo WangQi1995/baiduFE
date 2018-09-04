@@ -35,7 +35,6 @@ function createBar(data) {
 
     for(var i=0; i<data.length; i++) {
         var rect = document.createElementNS("http://www.w3.org/2000/svg", 'rect')
-        console.log(parseInt(300/data.length - rectWidth/2 + i*rectWidth + i*rectSpace))
         rect.setAttribute("x", parseInt(300/data.length - rectWidth/2 + i*rectWidth + i*rectSpace))
         rect.setAttribute("y", 200-unit*data[i])
         rect.setAttribute("width", rectWidth)
