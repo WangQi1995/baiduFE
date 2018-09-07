@@ -4,3 +4,20 @@
 #line-wrapper {
     margin-top: 10px
 }
+table {
+    border: 1px solid black;
+    border-collapse: collapse
+}
+table td {
+    border: 1px solid black;
+    position: relative
+}
+.cancle {
+    position: absolute;
+    z-index: 1
+}
+.confirm{
+    position: absolute;
+    right: -45px;
+    z-index: 1
+}

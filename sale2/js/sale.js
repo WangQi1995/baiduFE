@@ -162,8 +162,9 @@ function createTable(regions, products, data) {
     var productCount = products.length
     if(regionCount == 1 && productCount > 1) {
         var tableArea = document.querySelector("#table-wrapper");
-        tableArea.innerHTML = "<table id='data-table' border='1'><tr><th>地区</th><th>商品</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th><th>6月</th><th>7月</th><th>8月</th><th>9月</th><th>10月</th><th>11月</th><th>12月</th></tr></table>"
+        tableArea.innerHTML = "<table id='data-table'><tr><th>地区</th><th width='50'>商品</th><th width='50'>1月</th><th width='50'>2月</th><th width='50'>3月</th><th width='50'>4月</th><th width='50'>5月</th><th width='50'>6月</th><th width='50'>7月</th><th width='50'>8月</th><th width='50'>9月</th><th width='50'>10月</th><th width='50'>11月</th><th width='50'>12月</th></tr></table>"
         var t = document.querySelector("#data-table")
+        t.classList.add("list-table")
         var tr = document.createElement("tr")
         tr.setAttribute("region", data[0].region) 
         tr.setAttribute("product", data[0].product)
@@ -175,8 +176,14 @@ function createTable(regions, products, data) {
         td.innerHTML = data[0].product
         tr.appendChild(td)
         for(var j=0; j<12; j++) {
+            var input = document.createElement("input")
+            input.style.border = 0
+            input.style.width = 50
+            input.style.fontSize = "medium"
+            input.className = "edit-input"
+            input.value = data[0].sale[j]
             var td = document.createElement("td")
-            td.innerHTML = data[0].sale[j]
+            td.appendChild(input)
             tr.appendChild(td)
         }
         t.appendChild(tr)
@@ -188,16 +195,24 @@ function createTable(regions, products, data) {
             td.innerHTML = data[i].product
             tr.appendChild(td)
             for(var j=0; j<12; j++) {
+                var input = document.createElement("input")
+                input.className = "edit-input"
+                input.style.border = 0
+                input.style.width = 50
+                input.style.fontSize = "medium"
+                input.value = data[i].sale[j]
                 var td = document.createElement("td")
-                td.innerHTML = data[i].sale[j]
+                td.appendChild(input)
                 tr.appendChild(td)
             }
             t.appendChild(tr)
         }
     } else {
         var tableArea = document.querySelector("#table-wrapper");
-        tableArea.innerHTML = "<table id='data-table' border='1'><tr><th>商品</th><th>地区</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th><th>6月</th><th>7月</th><th>8月</th><th>9月</th><th>10月</th><th>11月</th><th>12月</th></tr></table>"
+        tableArea.innerHTML = "<table id='data-table'><tr><th>地区</th><th width='50'>商品</th><th width='50'>1月</th><th width='50'>2月</th><th width='50'>3月</th><th width='50'>4月</th><th width='50'>5月</th><th width='50'>6月</th><th width='50'>7月</th><th width='50'>8月</th><th width='50'>9月</th><th width='50'>10月</th><th width='50'>11月</th><th width='50'>12月</th></tr></table>"
+        //tableArea.innerHTML = "<table id='data-table' border='1'><tr><th>商品</th><th>地区</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th><th>6月</th><th>7月</th><th>8月</th><th>9月</th><th>10月</th><th>11月</th><th>12月</th></tr></table>"
         var t = document.querySelector("#data-table")
+        t.classList.add("list-table")
         for(var i=0; i<productCount; i++) {
             var flag = 0;
             for(var j=0; j<data.length; j++) {
@@ -214,8 +229,14 @@ function createTable(regions, products, data) {
                     td.innerHTML = data[j].region
                     tr.appendChild(td)
                     for(var m=0; m<12; m++) {
+                        var input = document.createElement("input")
+                        input.className = "edit-input"
+                        input.style.border = 0
+                        input.style.width = 50
+                        input.style.fontSize = "medium"
+                        input.value = data[j].sale[m]
                         var td = document.createElement("td")
-                        td.innerHTML = data[j].sale[m]
+                        td.appendChild(input)
                         tr.appendChild(td)
                     }
                     t.appendChild(tr)

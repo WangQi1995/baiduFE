@@ -50,16 +50,18 @@ function draw(data) {
 
 function createLine() {
     var t = document.querySelector("#data-table")
+    var data = []
     t.onmouseover = function(ev) {
-        var data = new Array()
         var ev = ev || window.ev
         var target = ev.target || ev.srcElement
+        var childs = target.childNodes
         if(target.nodeName.toLowerCase() == "td") {
+            data = []
             var tr = target.parentNode
             var tds = tr.childNodes
             for(var i=0; i<tds.length; i++) {
-                if (!isNaN(tds[i].innerHTML)) {
-                    data.push(tds[i].innerHTML)
+                if (!isNaN(tds[i].firstChild.value)) {
+                  data.push(tds[i].firstChild.value)
                 }
             }
         }
