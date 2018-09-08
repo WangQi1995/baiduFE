@@ -4,6 +4,9 @@
 #line-wrapper {
     margin-top: 10px
 }
+#save-wrapper {
+    margin-top: 10px
+}
 table {
     border: 1px solid black;
     border-collapse: collapse
@@ -14,6 +17,8 @@ table td {
 }
 .cancle {
     position: absolute;
+    right: -45px;
+    top: 30px;
     z-index: 1
 }
 .confirm{

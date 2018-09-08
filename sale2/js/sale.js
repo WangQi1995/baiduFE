@@ -182,6 +182,9 @@ function createTable(regions, products, data) {
             input.style.fontSize = "medium"
             input.className = "edit-input"
             input.value = data[0].sale[j]
+            input.setAttribute('product', data[0].product)
+            input.setAttribute('region', data[0].region)
+            input.setAttribute('month', j+1)
             var td = document.createElement("td")
             td.appendChild(input)
             tr.appendChild(td)
@@ -200,6 +203,9 @@ function createTable(regions, products, data) {
                 input.style.border = 0
                 input.style.width = 50
                 input.style.fontSize = "medium"
+                input.setAttribute('product', data[i].product)
+                input.setAttribute('region', data[i].region)
+                input.setAttribute('month', j+1)
                 input.value = data[i].sale[j]
                 var td = document.createElement("td")
                 td.appendChild(input)
@@ -234,6 +240,9 @@ function createTable(regions, products, data) {
                         input.style.border = 0
                         input.style.width = 50
                         input.style.fontSize = "medium"
+                        input.setAttribute('product', data[j].product)
+                        input.setAttribute('region', data[j].region)
+                        input.setAttribute('month', m+1)
                         input.value = data[j].sale[m]
                         var td = document.createElement("td")
                         td.appendChild(input)

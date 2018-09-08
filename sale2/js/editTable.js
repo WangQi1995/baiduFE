@@ -13,6 +13,10 @@ document.addEventListener('click', function(e) {
         case 'confirm':
             break
         case 'cancle':
+            clearEdit(tempParent)
+            break
+        default:
+            clearEdit(tempParent)
             break
     }
 })
@@ -29,18 +33,45 @@ function createEdit(target) {
     confirmButton.classList.add("confirm")
     td.appendChild(cancleButton)
     td.appendChild(confirmButton)
+
+    cancleButton.onclick = function() {
+        target.value = initalNum
+        clearEdit(tempParent)
+    }
+
+    confirmButton.onclick = function() {
+        var product = target.getAttribute('product')
+        var region = target.getAttribute('region')
+        var month = target.getAttribute('month')
+        // change sourceData
+        for(var i=0; i<sourceData.length; i++) {
+            if(sourceData[i].product == product && sourceData[i].region == region) {
+                sourceData[i].sale[month-1] = parseInt(target.value)
+                break
+            }
+        }
+        clearEdit(tempParent)
+    }
+
+    target.onkeyup = function(e) {
+        if(e.keyCode == 13) {
+            clearEdit(tempParent)
+            target.blur()
+        }
+        if(e.keyCode == 27) {
+            target.value = initalNum
+            clearEdit(tempParent)
+            target.blur()
+        }
+    }
 }
 
 function clearEdit(tempParent) {
-    console.log(tempParent)
     if(tempParent) {
         var childs = tempParent.childNodes
-        console.log(childs)
         for(var i=childs.length-1; i>=0; i--) {
             if(childs[i].className == 'cancle' || childs[i].className == 'confirm') {
-                console.log('delete')
-                console.log(childs[i])
-//                tempParent.removeChild(childs[i])
+                tempParent.removeChild(childs[i])
             }
         }
     }
